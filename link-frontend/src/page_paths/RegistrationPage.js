@@ -10,8 +10,9 @@ export const RegistrationPage = () => {
   const [error, setError] = useState('')
 
   const handleForm = async (e) => {
-    e.preventDefault()
-    setError('')
+    if (e === !undefined) {e.preventDefault()
+      setError('')}
+    
 
     if (pass1 !== pass2) {
       setError('Passwords do not match')

@@ -18,7 +18,7 @@ export const Post = ({ post, erasePost }) => {
       }
     } catch (error) {
       setError(error.message)
-    }
+    } console.log(user)
   }
 
   return (
@@ -26,12 +26,12 @@ export const Post = ({ post, erasePost }) => {
       <h2>{post.title}</h2>
       <p>{post.description}</p>
       <p>{post.url ? <a href={post.url}>{post.url}</a> : null}</p>
-      <p>
-        Posted by {user.name} on{' '}
+      <aside>
+        Posted on{' '}
         <Link to={`/post/${post.user_id}`}>
           {new Date(post.created_at).toLocaleString()}
         </Link>
-      </p>
+      </aside>
       {user && user.id === post.user_id
         ? (
         <p>

@@ -4,12 +4,12 @@ import { sendPostRequest } from '../requests'
 import { ErrorMessage } from './ErrorMessage'
 
 export const PostPost = ({ addPost }) => {
+  const { token } = useContext(AuthContext)
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [url, setUrl] = useState('')
   const [error, setError] = useState('')
   const [posting, setPosting] = useState(false)
-  const { token } = useContext(AuthContext)
 
   const handleForm = async (e) => {
     e.preventDefault()
@@ -32,8 +32,8 @@ export const PostPost = ({ addPost }) => {
 
   return (
     <section>
-      <h1>Publicar nuevo enlace:</h1>
-      <form onSubmit={handleForm}>
+      <h1>Publish new post:</h1>
+      <form className="new-post" onSubmit={handleForm}>
         <fieldset>
           <label htmlFor="title">Title</label>
           <input

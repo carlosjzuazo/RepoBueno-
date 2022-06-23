@@ -10,8 +10,8 @@ export const LoginPage = () => {
   const { login } = useContext(AuthContext)
 
   const handleForm = async (e) => {
-    e.preventDefault()
-    setError('')
+    if (e === !undefined) {e.preventDefault()
+      setError('')}
 
     try {
       const data = loginUserRequest({ email, password })
